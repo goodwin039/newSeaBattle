@@ -3,7 +3,7 @@ public class Cell {
 
     static final int SIZE = 10;
     char cell[][] = new char[SIZE][SIZE];
-    static final int PATTERN_DECK[] = {4, 3};//,3, 2, 2, 2, 1, 1, 1, 1};  // Как только ставлю колличество кораблей большее 2 игра не запускается
+    static final int PATTERN_DECK[] = {4, 3,3, 2, 2, 2, 1, 1, 1, 1};//};  // Как только ставлю колличество кораблей большее 2 игра не запускается
     Ship ships[] = new Ship[PATTERN_DECK.length];
 
     void fillField(){
@@ -51,6 +51,9 @@ public class Cell {
         for (int i = 0; i < ship.size; i++) {
             for (int dy = -1; dy < 2; dy++) {
                 for (int dx = -1; dx < 2; dx++) {
+                    if (ship.positionY + dy < 0 || ship.positionY + dy >= SIZE || ship.positionX + dx + i < 0 || ship.positionX + dx + i >= SIZE) {
+                        continue;
+                    }
                     if (cell[ship.positionY + dy][ship.positionX + dx + i] == '#') {
                         return true;
                     }
