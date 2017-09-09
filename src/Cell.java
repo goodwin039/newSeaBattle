@@ -3,7 +3,7 @@ public class Cell {
 
     static final int SIZE = 10;
     char cell[][] = new char[SIZE][SIZE];
-    static final int PATTERN_DECK[] = {4, 3,3, 2, 2, 2, 1, 1, 1, 1};//};  //  ак только ставлю колличество кораблей большее 2 игра не запускаетс€
+    static final int PATTERN_DECK[] = {4, 3,3, 2, 2, 2, 1, 1, 1, 1};
     Ship ships[] = new Ship[PATTERN_DECK.length];
 
     void fillField(){
@@ -27,7 +27,7 @@ public class Cell {
 
     void initShip() {
         for (int i = 0; i < PATTERN_DECK.length; i++) {
-            Ship tmpShip = new Ship(PATTERN_DECK[i]);//здесь можно будет переменную добавить отвечающцю за вертикальный или горизонтальный корабль
+            Ship tmpShip = new Ship(PATTERN_DECK[i]);
             boolean isIntersect;
 
             do {
