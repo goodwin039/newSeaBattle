@@ -6,6 +6,7 @@ public class Ship {
     int lives;
     int positionX;
     int positionY;
+    int rnd;
 
     Ship(int patternDeck) {
         size = patternDeck;
@@ -16,9 +17,22 @@ public class Ship {
     void initWithRandom() {
         positionX = (int) (Math.random() * (Cell.SIZE - size)) + 1;
         positionY = (int) (Math.random() * (Cell.SIZE - size)) + 1;
+        ////////////////////////////////////
+        rnd = (int) (Math.random() * 2);
 
-        for (int i = 0; i < size; i++) {
-            shipArr[positionY][positionX + i] = '#';
+
+        if (rnd == 0) {///////////////////////////////////////////////////
+            for (int i = 0; i < size; i++) {
+                shipArr[positionY + i][positionX] = '#';
+
+            }
+        } else {//////////////////////////////////////////////////////////
+            for (int i = 0; i < size; i++) {////////////////////////////////
+                shipArr[positionY][positionX + i] = '#';
+                //////////////////////
+            }/////////////////////////////////////////////////////////////////
         }
+
+        
     }
 }

@@ -64,9 +64,16 @@ public class Cell {
     }
 
     void drawnShip(Ship tmpShip) {
-        for (int i = 0; i < tmpShip.size; i++) {
-            cell[tmpShip.positionY][tmpShip.positionX + i] = '#';
+        if (tmpShip.rnd == 0) {
+            for (int i = 0; i < tmpShip.size; i++) {
+                cell[tmpShip.positionY + i][tmpShip.positionX] = '#';
+            }
+        } else {
+            for (int i = 0; i < tmpShip.size; i++) {
+                cell[tmpShip.positionY][tmpShip.positionX + i] = '#';
+            }
         }
+
 
     }
 
