@@ -48,18 +48,35 @@ public class Cell {
 
     boolean coincideShip(Ship ship) {
 
-        for (int i = 0; i < ship.size; i++) {
-            for (int dy = -1; dy < 2; dy++) {
-                for (int dx = -1; dx < 2; dx++) {
-                    if (ship.positionY + dy < 0 || ship.positionY + dy >= SIZE || ship.positionX + dx + i < 0 || ship.positionX + dx + i >= SIZE) {
-                        continue;
-                    }
-                    if (cell[ship.positionY + dy][ship.positionX + dx + i] == '#') {
-                        return true;
+        if (ship.rnd == 0) {
+            for (int i = 0; i < ship.size; i++) {
+                for (int dy = -1; dy < 2; dy++) {
+                    for (int dx = -1; dx < 2; dx++) {
+                        if (ship.positionY + dy  + i < 0 || ship.positionY + dy  + i >= SIZE || ship.positionX + dx < 0 || ship.positionX + dx >= SIZE) {
+                            continue;
+                        }
+                        if (cell[ship.positionY + dy + i][ship.positionX + dx] == '#') {
+                            return true;
+                        }
                     }
                 }
             }
+        } else {
+            for (int i = 0; i < ship.size; i++) {
+                for (int dy = -1; dy < 2; dy++) {
+                    for (int dx = -1; dx < 2; dx++) {
+                        if (ship.positionY + dy < 0 || ship.positionY + dy >= SIZE || ship.positionX + dx + i < 0 || ship.positionX + dx + i >= SIZE) {
+                            continue;
+                        }
+                        if (cell[ship.positionY + dy][ship.positionX + dx + i] == '#') {
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
         }
+
         return false;
     }
 
